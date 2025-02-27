@@ -11,7 +11,7 @@
     /* Projects Background Color */
     --card-bg: #222;
 
-    /* Regualr Text Color */
+    /* Regular Text Color */
     --text-color: #fff;
 
     /* Nav Bar Color */
@@ -30,7 +30,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Great Vibes', monospace; */
+    font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
     color: var(--text-color);
 }
@@ -78,7 +80,7 @@ body {
     color: var(--primary-color);
 }
 
-/* About Section */
+/* About Section */ 
 #about {
     display: flex;
     align-items: center;
@@ -129,7 +131,8 @@ body {
     align-items: center;
     gap: 8px;
     padding: 10px 15px;
-    border-radius: 5px;
+    /* Come back later */
+    border-radius: 10px;
     text-decoration: none;
     color: var(--text-color);
     border: 1px solid var(--primary-color);
