@@ -5,8 +5,8 @@
     --secondary-color: #cfa109;
 
     /* Background Colors */
-    --background-primary: #121212;
-    --background-secondary: rgb(24, 24, 24);
+    --background-primary: rgb(24, 24, 24, 0);  /* #121212; */
+    --background-secondary: rgb(24, 24, 24, 0);  /* rgb(24, 24, 24); */
 
     /* Projects Background Color */
     --card-bg: #222;
@@ -43,6 +43,23 @@ body {
     line-height: 1.6;
 }
 
+/* For Particles */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Pushes it behind everything */
+    pointer-events: none; /* Ensures interactions pass through */
+    background-color: #000;
+}
+
+/* For Youtube Video */
+iframe {
+    margin: 3%;
+}
+
 /* Nav Bar */
 .navbar {
     position: fixed;
@@ -70,6 +87,28 @@ body {
 }
 
 .nav-links a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Old Nav Styling */
+/* .nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-size: 16px;
@@ -78,9 +117,9 @@ body {
 
 .nav-links a:hover {
     color: var(--primary-color);
-}
+} */
 
-/* About Section */ 
+/* About Section */
 #about {
     display: flex;
     align-items: center;
@@ -267,6 +306,7 @@ textarea {
     margin-top: 5px;
     border: none;
     border-radius: 5px;
+    color: #000;
 }
 
 button {
