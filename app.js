@@ -1,3 +1,37 @@
+// Load YouTube API
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+let players = [];
+
+function onYouTubeIframeAPIReady() {
+    // Get all iframes
+    const iframes = document.querySelectorAll('.video-grid iframe');
+    
+    // Initialize YouTube player for each iframe
+    iframes.forEach((iframe, index) => {
+        players[index] = new YT.Player(iframe, {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    });
+}
+
+function onPlayerStateChange(event) {
+    // If a video starts playing
+    if (event.data == YT.PlayerState.PLAYING) {
+        // Stop all other videos
+        players.forEach(player => {
+            if (player !== event.target) {
+                player.pauseVideo();
+            }
+        });
+    }
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
