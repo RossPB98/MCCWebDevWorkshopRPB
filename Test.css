@@ -1,4 +1,4 @@
-body {
+html {
     min-height: 2000px;
 }
 
@@ -66,7 +66,7 @@ body {
     overflow: hidden;
 }
 
-.gird {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minimax(min(100%, 300px), 1fr));
     gap: 1rem;
@@ -83,4 +83,83 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,.1);
+}
+
+.hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide::-webkit-scrollbar {
+    display: none;
+}
+
+.load {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shine 1.5s infinite linear;
+}
+
+@keyframes shine {
+    to {background-position: -200% 0;}
+}
+
+.fit {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.check {
+    appearance: none;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+.check:checked {
+    background: currentColor;
+}
+
+.reset {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.text {
+    text-wrap: balance;
+    max-width: 70ch;
+}
+
+.shadow {
+    box-shadow: 0 0 10px rgb(0 0 0/0.1), 
+                0 0 20px rgb(0 0 0/0.1);
+}
+
+.wrap {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+}
+
+.fluid {
+    font-size: clamp(1rem, 0.5rem + 2vw, 2rem);
+}
+
+.vert {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+@media print {
+    .hide {display: none;}
+    a[href]::after {content: "(" attr(href) ")"}
 }
